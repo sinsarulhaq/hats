@@ -85,3 +85,4 @@ export default Settings;
 const ThemeChanger = styled.div`
 color: ${props => props.theme.fontColor}
 `
+
