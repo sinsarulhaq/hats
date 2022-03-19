@@ -14,33 +14,23 @@ function Settings() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
-  const updateEmail = (email) => {
+  const updateEmail = () => {
     user
       .updateEmail(email)
-      .then(() => {
-        // Update successful
-        // ...
-      })
+      .then(() => {})
       .catch((error) => {
         alert("Email update unsuccessful");
-        // An error occurred
-        // ...
       });
   };
 
-  const updateUsername = (username) => {
+  const updateUsername = () => {
     user
       .updateProfile({
         displayName: username,
       })
-      .then(() => {
-        // Update successful
-        // ...
-      })
+      .then(() => {})
       .catch((error) => {
         alert("username update unsuccessful");
-        // An error occurred
-        // ...
       });
   };
 
@@ -52,9 +42,9 @@ function Settings() {
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTeme : DarkTeme}>
-        <GlobalStyle/>
+      <GlobalStyle />
       <>
-        <div>Settings</div>
+        <div></div>
         <input
           type="email"
           onChange={(e) => setEmail(e.target.value)}
@@ -66,15 +56,10 @@ function Settings() {
           placeholder="Username"
         />
         <button onClick={onSave}>SAVE</button>
-        {/* <select>
-          <option value="select a theme">select a theme</option>
-          <option value="dark">dark</option>
-          <option value="light">light</option>
-        </select> */}
+
         <ThemeChanger>
-        <button onClick={() => themeToggler()}>change theme</button>
+          <button onClick={() => themeToggler()}>change theme</button>
         </ThemeChanger>
-       
       </>
     </ThemeProvider>
   );
@@ -83,6 +68,5 @@ function Settings() {
 export default Settings;
 
 const ThemeChanger = styled.div`
-color: ${props => props.theme.fontColor}
-`
-
+  color: ${(props) => props.theme.fontColor};
+`;

@@ -24,10 +24,8 @@ function Home() {
       <div className="home">
         <div className="login">
           {user ? (
-              <>
-            <h1>Welcome {user.displayName}</h1>
-            {/* <input type="text"  placeholder="address"/>
-            <input type="number"  placeholder="mobile number"/> */}
+            <>
+              <h1>Welcome {user.displayName}</h1>
             </>
           ) : (
             <button className="button" onClick={handleSingIn}>
