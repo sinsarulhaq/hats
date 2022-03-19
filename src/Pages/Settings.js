@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
+
 import { auth } from "../firebase";
 import { lightTeme, DarkTeme, GlobalStyle } from "../theme";
 function Settings() {
@@ -14,23 +15,19 @@ function Settings() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
-  const updateEmail = () => {
-    user
-      .updateEmail(email)
-      .then(() => {})
-      .catch((error) => {
-        alert("Email update unsuccessful");
-      });
+  const updateEmail = (email) => {
+    user.updateEmail(email).then(() => {}).catch((error) => {
+      alert(error.message)
+    })
   };
 
-  const updateUsername = () => {
+  const updateUsername = (username) => {
     user
       .updateProfile({
         displayName: username,
       })
-      .then(() => {})
-      .catch((error) => {
-        alert("username update unsuccessful");
+      .then(() => {}).catch((error) => {
+        alert(error.message)
       });
   };
 

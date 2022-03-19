@@ -14,7 +14,7 @@ function Dashboard() {
       <div className="dashboard-details">
         <h3>name: {user ? user.displayName : ""}</h3>
         <h3>email: {user ? user.email : ""}</h3>
-        <h3>image:</h3> <img src={user ? user.image : ""} alt="" />
+        <h3>image:</h3> <img className="img" src={user ? user.photoURL : ""} alt="" />
       </div>
       <div className="edit">
         <button onClick={redirect}>Edit</button>
